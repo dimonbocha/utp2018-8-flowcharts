@@ -1,97 +1,100 @@
 var MoveScript = new function() {
 
-    var Object = {};
+    var dragObject = {};
     var self = this;
 
     function MouseDown(obj) {
-        var box = obj.target.closest('.draggable');
-        if (!box)   //коробки нету
-            return;
-        Object.box =box; //запомнили саму коробку которую тащим
-        Object.botX = obj.botX;//забираем координаты в момент клика
-        Object.botY = obj.botY;
-        return false;
 
+        if (obj.which != 1) return; //нажали др кнопкой мыши
+
+        var elem = obj.target.closest('.draggable');
+        if (!elem)   //коробки нету
+            return;
+        dragObject.elem =elem; //запомнили саму коробку которую тащим
+        dragObject.botX = obj.pageX;//забираем координаты в момент клика
+        dragObject.botY = obj.pageY;
+
+        return false;
     }
 
 
     function MouseMove(obj) {
-        if(!Object.box)
+        if(!dragObject.elem)
             return;
-        if (!Object.carry){ //если нету то создай
-            Object.carry = Create(obj)
-            if (!Object.carry){ //не создал значит и не надо, отмена операции
-                Object = {};
+        if (!dragObject.carry){ //если нету то создай
+            dragObject.carry = Create(obj)
+            if (!dragObject.carry){ //не создал значит и не надо, отмена операции
+                dragObject = {};
                 return;
             }
-            var XoY = getCoord(Object.carry);
-            Object.moveX =Object.botX - XoY.left;
-            Object.moveY = Object.botY - XoY.top;
+            var XoY = getCoord(dragObject.carry);
+            dragObject.moveX =dragObject.botX - XoY.left;
+            dragObject.moveY = dragObject.botY - XoY.top;
             DoCarryBox(obj);
         }
-        Object.box.style.left = obj.botX - Object.moveX + 'px';
-        Object.box.style.top = obj.botY - Object.moveY + 'px';
+        dragObject.carry.style.left = obj.pageX - dragObject.moveX + 'px';
+        dragObject.carry.style.top = obj.pageY - dragObject.moveY + 'px';
         return false;
     }
     
     function Create(obj) {
-        var carry = Object.box;
+        var carry = dragObject.elem;
         var ZeroPoint = {
-            parent : carry.parentNode, nextSubling : carry.nextSubling, pos: carry.pos || '',
-            left: carry.left || '', top: carry.top || '', ZI: carry.ZI || ''};
+            parent : carry.parentNode, nextSibling : carry.nextSibling, position: carry.pos || '',
+            left: carry.left || '', top: carry.top || '', zIndex: carry.zIndex || ''};
         carry.getback = function () {
-            ZeroPoint.parent.insertBefore(carry, ZeroPoint.nextSubling);
-            carry.style.pos = ZeroPoint.pos;
+            ZeroPoint.parent.insertBefore(carry, ZeroPoint.nextSibling);
+            carry.style.position = ZeroPoint.position;
             carry.style.left = ZeroPoint.left;
             carry.style.top = ZeroPoint.top;
-            carry.style.ZI = ZeroPoint.ZI;
+            carry.style.zIndex = ZeroPoint.zIndex;
         };
         return carry;
     }
     
     function DoCarryBox(obj) {
-        var carry = Object.carry;
+        var carry = dragObject.carry;
         document.body.appendChild(carry);
-        carry.style.ZI = 9999;
-        carry.style.pos ='absolute';
+        carry.style.zIndex = 9999;
+        carry.style.position ='absolute';
     }
 
 
     function MouseUp(obj) {
-        if (Object.carry){
+        if (dragObject.carry){
             var Dropplace = FindPlace(obj);
             if (Dropplace) {
-                self.MoveEnd(Object, Dropplace);
+                self.MoveEnd(dragObject, Dropplace);
             } else {
                 self.NotRightMove(Dropplace);
             }
         }
-        Object = {};
+        dragObject = {};
     }
 
-    function FindPlace(smth) {
-        Object.carry.hidden = true;
-        var elem =document.elementFromPoint(smth.clientX, smth.clientY);
-        Object.carry.hidden = false;
+    function FindPlace(event) {
+        dragObject.carry.hidden = true;
+        var elem =document.elementFromPoint(event.clientX, event.clientY);
+        dragObject.carry.hidden = false;
         if(elem == null)
             return null;
         return elem.closest('.droppable');
     }
 
 
-        document.mousemove = MouseMove;
-        document.mouseup = MouseUp;
-        document.mousedown = MouseDown;
+        document.onmousemove = MouseMove;
+        document.onmouseup = MouseUp;
+        document.onmousedown = MouseDown;
 
 
-    this.MoveEnd = function(Object, Dropplace) { };
-    this.NotRightMove = function(Object) { };
-}
+    this.MoveEnd = function(dragObject, Dropplace) { };
+    this.NotRightMove = function(dragObject) { };
+};
 function getCoord(elem) { // кроме IE8-
     var box = elem.getBoundingClientRect();
 
     return {
         top: box.top + pageYOffset,
         left: box.left + pageXOffset
-    }
+    };
 }

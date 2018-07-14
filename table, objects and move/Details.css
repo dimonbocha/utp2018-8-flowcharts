@@ -1,15 +1,75 @@
-.computer {
-  width: 93px;
-  height: 98px;
-  background: url(https://js.cx/clipart/computer.gif) no-repeat;
-  padding: 5px;
-  font-style: italic;
-}
+#div1 {
+	position: absolute;
 
-.computer-smile {
-  background: url(https://js.cx/clipart/computer-smile.gif) no-repeat;
-}
+	top: 90px; /**/
+	left: 10px; /**/
+    float: right;
 
-.draggable {
-  cursor: pointer;
+    width: 100px;
+    height: 35px;
+
+    margin: 10px;
+    padding: 10px;
+
+    border: 2px solid black;
 }
+#div2 {
+	position: absolute;
+
+	top: 160px; /**/
+	left: 10px; /**/
+    float: right;
+
+    width: 100px;
+    height: 35px;
+
+    margin: 10px;
+    padding: 10px;
+
+    border: 2px solid black;
+}
+#div3 {
+	position: absolute;
+
+	top: 230px; /**/
+	left: 10px; /**/
+    float: right;
+
+    width: 100px;
+    height: 35px;
+
+    margin: 10px;
+    padding: 10px;
+
+    border: 2px solid black;
+}
+#div4 {
+	position: absolute;
+
+	top: 90px; /**/
+	left: 170px; /**/
+    float: right;
+
+    width: 500px;
+    height: 500px;
+
+    margin: 10px;
+    padding: 10px;
+
+    border: 2px solid black;
+}
+/* #div5 {
+	position: absolute;
+
+	top: 370px; /**/
+/*	left: 10px; /**/
+/*    float: right;
+
+    width: 100px;
+    height: 35px;
+
+    margin: 10px;
+    padding: 10px;
+
+    border: 2px solid black;
+}  */

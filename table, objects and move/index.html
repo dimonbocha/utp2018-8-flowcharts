@@ -7,51 +7,45 @@
   <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
   <link rel="stylesheet" href="Details.css">
   <script>
-    MoveScript.NotRightMove = function(Object) {
-      Object.carry.getback();
+    MoveScript.NotRightMove = function(dragObject) {
+      dragObject.carry.getback();
     };
 
-    MoveScript.MoveEnd = function(Object, Dropplace) {
-      Object.box.style.display = 'none';
-      dropplace.classList.add('computer-smile');
+    MoveScript.MoveEnd = function(dragObject, Dropplace) {
+      dragObject.elem.style.display = ''; //чтобы картинка осталась
+      Dropplace.classList.add('computer-smile');
       setTimeout(function() {
-        dropplace.classList.remove('computer-smile');
+        Dropplace.classList.remove('computer-smile');
       }, 200);
     };
   </script>
 </head>
  <body>
- 	<canvas id ="canvas" width="800" height="800"></canvas>
-        <script>
-            'use strict';
 
-            var canvas = document.getElementById("canvas");
-            var ctx = canvas.getContext("2d");
-            for (var i=0; i<8; i++) {
-                ctx.strokeRect(10, 10, 300, 500);
-            }
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="Pic/Krug.jpg" class="draggable" width="68" height="31">
+    </div>
 
-            for (var i=0; i<8; i++) {
-                ctx.strokeRect(330, 10, 100, 500)
-            }
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="Pic/KVD.jpg" class="draggable" width="57" height="31">
+    </div>
 
-            for (var i=0; i<8; i++) {
-                ctx.strokeRect(450, 10, 150, 500)
-            }
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="Pic/Romb.jpg" class="draggable" width="68" height="31">
+    </div>
 
-        </script>
-	 <div style="height:30px">
-    <img src="Pic/Krug.jpg" class="draggable" style="position:absolute;left:340px;right:100px; top:20px" width=60 height=100>
-    <img src="Pic/Romb.jpg" class="draggable" style="position:absolute;left:340px;right:100px; top:130px" width=60 height=100>
-    <img src="Pic/KVD.jpg" class="draggable" style="position:absolute;left:340px;right:100px; top:240px" width=60 height=100>
+    <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
+    <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
+
+  <p>!Первая версия! переноса изображений на холст, они не бесконечные. Расставлять можно на холсте как угодно, магнита пока нет. Ввода нет, изображения убогие, в дальнейшем надо нарисовать в фотошопе и увеличить рамки, где хранятся изображения. Доработать возвращение изображений на место, тк улетают вверх при некоторых действиях. </p>
+
   </div>
-  <p>
+  <!-- <p>
     Содержимое этого файла HTML будет отображаться на&nbsp;странице
     <a href="https://bmstu-iu9.github.io/utp2018-8-flowcharts">
       https://bmstu-iu9.github.io/utp2018-8-flowcharts
     </a>
-  </p>
-   <div class="computer droppable">
+  </p> -->
   </div>
  </body>
 </html>
