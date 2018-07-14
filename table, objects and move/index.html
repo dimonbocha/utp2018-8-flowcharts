@@ -3,7 +3,23 @@
  <head>
   <title>Редактор и интертрепатор блок-схем</title>
   <meta charset="utf8"/>
- </head>
+  <script src="MoveScript.js"></script>
+  <script src="https://cdn.polyfill.io/v1/polyfill.js?features=Element.prototype.closest"></script>
+  <link rel="stylesheet" href="Details.css">
+  <script>
+    MoveScript.NotRightMove = function(Object) {
+      Object.carry.getback();
+    };
+
+    MoveScript.MoveEnd = function(Object, Dropplace) {
+      Object.box.style.display = 'none';
+      dropplace.classList.add('computer-smile');
+      setTimeout(function() {
+        dropplace.classList.remove('computer-smile');
+      }, 200);
+    };
+  </script>
+</head>
  <body>
  	<canvas id ="canvas" width="800" height="800"></canvas>
         <script>
@@ -27,7 +43,7 @@
 	 <div style="height:30px">
     <img src="Pic/Krug.jpg" class="draggable" style="position:absolute;left:340px;right:100px; top:20px" width=60 height=100>
     <img src="Pic/Romb.jpg" class="draggable" style="position:absolute;left:340px;right:100px; top:130px" width=60 height=100>
-    <img src="Pic/KVD.jpg" class="draggable" style="position:absolute;left:340px;right:100px; top:240px" width=60 height=100>>
+    <img src="Pic/KVD.jpg" class="draggable" style="position:absolute;left:340px;right:100px; top:240px" width=60 height=100>
   </div>
   <p>
     Содержимое этого файла HTML будет отображаться на&nbsp;странице
@@ -35,5 +51,7 @@
       https://bmstu-iu9.github.io/utp2018-8-flowcharts
     </a>
   </p>
+   <div class="computer droppable">
+  </div>
  </body>
 </html>
