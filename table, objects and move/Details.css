@@ -1,4 +1,17 @@
-#div1 {
+#container {
+    position: absolute;
+
+    top: -8px; /**/
+    left: -5px; /**/
+    float: right;
+
+    width: 100px;
+    height: 35px;
+
+    margin: 10px;
+    padding: 10px;
+}
+#boxForOval {
 	position: absolute;
 
 	top: 90px; /**/
@@ -13,7 +26,7 @@
 
     border: 2px solid black;
 }
-#div2 {
+#boxForKVD {
 	position: absolute;
 
 	top: 160px; /**/
@@ -28,7 +41,7 @@
 
     border: 2px solid black;
 }
-#div3 {
+#boxForRomb {
 	position: absolute;
 
 	top: 230px; /**/
@@ -43,11 +56,11 @@
 
     border: 2px solid black;
 }
-#div4 {
+#workspace {
 	position: absolute;
 
 	top: 90px; /**/
-	left: 170px; /**/
+	left: 150px; /**/
     float: right;
 
     width: 500px;
@@ -58,18 +71,18 @@
 
     border: 2px solid black;
 }
-/* #div5 {
+#boxForInput {
 	position: absolute;
 
-	top: 370px; /**/
-/*	left: 10px; /**/
-/*    float: right;
+	top: 90px; /**/
+	left: 690px; /**/
+    float: right;
 
-    width: 100px;
-    height: 35px;
+    width: 150px;
+    height: 500px;
 
     margin: 10px;
     padding: 10px;
 
     border: 2px solid black;
-}  */
+}  
