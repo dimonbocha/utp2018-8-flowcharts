@@ -13,29 +13,31 @@
 
     MoveScript.MoveEnd = function(dragObject, Dropplace) {
       dragObject.elem.style.display = ''; //чтобы картинка осталась
-      Dropplace.classList.add('computer-smile');
-      setTimeout(function() {
-        Dropplace.classList.remove('computer-smile');
-      }, 200);
     };
   </script>
 </head>
  <body>
 
-  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <div id="boxForOval" ondrop="drop(event)" ondragover="allowDrop(event)">
         <img src="Pic/Krug.jpg" class="draggable" width="68" height="31">
     </div>
 
-    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <img src="Pic/KVD.jpg" class="draggable" width="57" height="31">
+    <div id="boxForKVD" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div id="container" class="draggable">
+        <img src="Pic/KVD.jpg" width="57" height="31">
+        <span style="position:absolute;bottom:20px;left:13px;"> x = 100 </span>
+      </div>
     </div>
 
-    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <img src="Pic/Romb.jpg" class="draggable" width="68" height="31">
+    <div id="boxForRomb" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div id="container" class="draggable">
+        <img src="Pic/Romb.jpg" width="68" height="31">
+        <span style="position:absolute;bottom:20px;left:27px;"> x < 3 </span>
+      </div>
     </div>
 
-    <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
-    <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
+    <div id="workspace" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
+    <div id="boxForInput" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
 
   <p>!Первая версия! переноса изображений на холст, они не бесконечные. Расставлять можно на холсте как угодно, магнита пока нет. Ввода нет, изображения убогие, в дальнейшем надо нарисовать в фотошопе и увеличить рамки, где хранятся изображения. Доработать возвращение изображений на место, тк улетают вверх при некоторых действиях. </p>
 
