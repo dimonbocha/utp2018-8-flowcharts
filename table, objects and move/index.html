@@ -18,30 +18,35 @@
 </head>
  <body>
 
-  <div id="boxForOval" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <img src="Pic/Krug.jpg" class="draggable" width="68" height="31">
+  <div id="boxForOval">
+        <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)"> 
+        <img src="Pic/Romb.jpg" width="100" height="70" style="position:absolute;left:15px;">
+        </div> 
     </div>
-
-    <div id="boxForKVD" ondrop="drop(event)" ondragover="allowDrop(event)">
-      <div id="container" class="draggable">
-        <img src="Pic/KVD.jpg" width="57" height="31">
-        <span style="position:absolute;bottom:20px;left:13px;"> x = 100 </span>
-      </div>
+    <div id="boxForKVD">
+        <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)"> 
+        <img src="Pic/KVD.jpg" width="100" height="70" style="position:absolute;left:15px;">
+        </div> 
     </div>
-
-    <div id="boxForRomb" ondrop="drop(event)" ondragover="allowDrop(event)">
-      <div id="container" class="draggable">
-        <img src="Pic/Romb.jpg" width="68" height="31">
-        <span style="position:absolute;bottom:20px;left:27px;"> x < 3 </span>
-      </div>
+    <div id="boxForRomb">
+        <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)"> 
+        <img src="Pic/Romb.jpg" width="100" height="70" style="position:absolute;left:15px;">
+        </div> 
     </div>
 
     <div id="workspace" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+
     <div id="boxForInput" ondrop="drop(event)" ondragover="allowDrop(event)" class="droppable"></div>
 
-  <p>!Первая версия! переноса изображений на холст, они не бесконечные. Расставлять можно на холсте как угодно, магнита пока нет. Ввода нет, изображения убогие, в дальнейшем надо нарисовать в фотошопе и увеличить рамки, где хранятся изображения. Доработать возвращение изображений на место, тк улетают вверх при некоторых действиях. </p>
+  <!-- <p>!Первая версия! переноса изображений на холст, они не бесконечные. Расставлять можно на холсте как угодно, магнита пока нет. Ввода нет, изображения убогие, в дальнейшем надо нарисовать в фотошопе и увеличить рамки, где хранятся изображения. Доработать возвращение изображений на место, тк улетают вверх при некоторых действиях. </p> -->
 
-  </div>
   <!-- <p>
     Содержимое этого файла HTML будет отображаться на&nbsp;странице
     <a href="https://bmstu-iu9.github.io/utp2018-8-flowcharts">
