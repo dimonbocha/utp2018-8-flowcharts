@@ -11,71 +11,62 @@
     margin: 10px;
     padding: 10px;
 }
+
 #boxForOval {
-	position: absolute;
-
-	top: 90px; /**/
-	left: 10px; /**/
-    float: right;
-
-    width: 100px;
-    height: 35px;
-
+    position: absolute;
+    text-align: center;
+    top: 90px; /**/
+    left: 10px; /**/
+    width: 110px;
+    height: 70px;
     margin: 10px;
     padding: 10px;
-
+    background: gray;
+    margin-bottom: 10px;
     border: 2px solid black;
 }
 #boxForKVD {
-	position: absolute;
-
-	top: 160px; /**/
-	left: 10px; /**/
-    float: right;
-
-    width: 100px;
-    height: 35px;
-
+    position: absolute;
+    text-align: center;
+    top: 190px; /**/
+    left: 10px; /**/
+    width: 110px;
+    height: 70px;
     margin: 10px;
     padding: 10px;
-
+    background: gray;
+    margin-bottom: 10px;
     border: 2px solid black;
 }
 #boxForRomb {
-	position: absolute;
-
-	top: 230px; /**/
-	left: 10px; /**/
-    float: right;
-
-    width: 100px;
-    height: 35px;
-
+    position: absolute;
+    text-align: center;
+    top: 290px; /**/
+    left: 10px; /**/
+    width: 110px;
+    height: 70px;
     margin: 10px;
     padding: 10px;
-
+    background: gray;
+    margin-bottom: 10px;
     border: 2px solid black;
 }
 #workspace {
-	position: absolute;
-
-	top: 90px; /**/
-	left: 150px; /**/
+    position: absolute;
+    top: 90px; /**/
+    left: 150px; /**/
     float: right;
-
     width: 500px;
     height: 500px;
-
     margin: 10px;
     padding: 10px;
-
     border: 2px solid black;
 }
 #boxForInput {
-	position: absolute;
+    position: absolute;
 
-	top: 90px; /**/
-	left: 690px; /**/
+    top: 90px; /**/
+    left: 690px; /**/
     float: right;
 
     width: 150px;
@@ -85,4 +76,21 @@
     padding: 10px;
 
     border: 2px solid black;
-}  
+}
+.dropzone {
+    position: relative;
+    text-align: center;
+    top: 109px;
+    left: 350px; 
+    width: 110px;
+    height: 70px;
+    background: blueviolet;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+#draggable {
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    background: transparent;
+  }
